@@ -1,0 +1,34 @@
+
+body{
+    background:black;
+    color:orange;
+    font-family: Consolas, monospace;
+}
+
+.errorBox{
+    width:520px;
+    margin:120px auto;
+    padding:20px;
+
+    background:rgba(255,140,0,0.15); /* transparent orange */
+    border:2px solid orange;
+    border-radius:6px;
+
+    box-shadow:0 0 15px rgba(255,140,0,0.5);
+}
+
+.titleBar{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:15px;
+    border-bottom:1px solid orange;
+    padding-bottom:5px;
+}
+
+a{
+    color:orange;
+}
+
+a:hover{
+    color:#ffb347;
+}
