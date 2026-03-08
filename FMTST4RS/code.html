@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Terminal</title>
+<style>
+body {
+    background-color: black;
+    color: #00ff9c;
+    font-family: monospace;
+    text-align: center;
+    margin-top: 100px;
+}
+input {
+    background: black;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    padding: 10px;
+}
+button {
+    background: black;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>TERMINAL</h1>
+<p>ACCESS LEVEL: RESTRICTED</p>
+
+<input id="pass" placeholder="ENTER ACCESS CODE">
+<button onclick="check()">LOGIN</button>
+
+<p id="msg"></p>
+
+<script>
+function check(){
+    let p = document.getElementById("pass").value;
+
+    if(p === "Orion"){
+        window.location.href = "passwordcorrect.html";
+    } else {
+        document.getElementById("msg").innerText = "ACCESS DENIED";
+    }
+}
+</script>
+
+<!--
+ENGINEER NOTE:
+
+Security override word: Orion
+Do not store this in plaintext next time.
+Whomever is coding the security, definitely needs to take a class on cybersecurity.
+SOMEONE could just use Inspect Element and see the password. So secure, guys. Really.
+- J
+-->
+
+</body>
+</html>
