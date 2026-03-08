@@ -86,7 +86,7 @@ function check(){
     if(code === "DECAYED"){
         document.getElementById("msg").innerText =
         "ACCESS GRANTED — CYLINDER RELEASED... Connecting...";
-        wait(1)
+          await sleep(2000); 
          window.location.href = "passwordcorrect.html";
     } else {
         document.getElementById("msg").innerText =
