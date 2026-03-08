@@ -15,7 +15,7 @@ body{
 #wheels{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:12px;
     margin:40px;
 }
 
@@ -28,6 +28,7 @@ body{
     align-items:center;
     justify-content:center;
     cursor:pointer;
+    user-select:none;
 }
 
 button{
@@ -36,9 +37,10 @@ button{
     border:1px solid #00ff9c;
     padding:10px 20px;
     font-family:monospace;
+    cursor:pointer;
+    margin-top:20px;
 }
 </style>
-
 </head>
 
 <body>
@@ -53,6 +55,7 @@ button{
 <div class="wheel">A</div>
 <div class="wheel">A</div>
 <div class="wheel">A</div>
+<div class="wheel">A</div>
 </div>
 
 <button onclick="check()">UNLOCK</button>
@@ -60,41 +63,34 @@ button{
 <p id="msg"></p>
 
 <script>
-
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const wheels = document.querySelectorAll(".wheel");
 
+// Clicking each wheel rotates it to the next letter
 wheels.forEach(wheel=>{
-wheel.addEventListener("click", ()=>{
-
-let current = wheel.innerText;
-let index = alphabet.indexOf(current);
-
-index = (index + 1) % 26;
-
-wheel.innerText = alphabet[index];
-
-});
+    wheel.addEventListener("click", ()=>{
+        let current = wheel.innerText;
+        let index = alphabet.indexOf(current);
+        index = (index + 1) % 26;
+        wheel.innerText = alphabet[index];
+    });
 });
 
+// Check if the code is correct
 function check(){
+    let code = "";
+    wheels.forEach(w=>{
+        code += w.innerText;
+    });
 
-let code = "";
-
-wheels.forEach(w=>{
-code += w.innerText;
-});
-
-if(code === "NEBULA"){
-document.getElementById("msg").innerText =
-"ACCESS GRANTED — CYLINDER RELEASED";
-}else{
-document.getElementById("msg").innerText =
-"LOCKED";
+    if(code === "DECAYED"){
+        document.getElementById("msg").innerText =
+        "ACCESS GRANTED — CYLINDER RELEASED";
+    } else {
+        document.getElementById("msg").innerText =
+        "LOCKED";
+    }
 }
-
-}
-
 </script>
 
 </body>
